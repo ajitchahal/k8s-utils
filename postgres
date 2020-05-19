@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: nginx
+        #securityContext:
+          #runAsUser: 1000
+        image: bitnami/postgresql
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        ports:
+        - containerPort: 5432
+          name: tcp
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+spec:
+  ports:
+  - name: tcp
+    port: 5432
+    protocol: TCP
+    targetPort: tcp
+  selector:
+    app: postgres
+  sessionAffinity: None
+  type: ClusterIP
