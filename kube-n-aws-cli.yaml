@@ -34,6 +34,8 @@ metadata:
   name: internal-kubectl
 spec:
   serviceAccountName: internal-kubectl
+  securityContext:
+    runAsUser: 1000
   containers:
     - name: internal-kubectl
       image: ajitchahal/kubectl-aws:latest
