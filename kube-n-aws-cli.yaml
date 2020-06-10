@@ -41,7 +41,5 @@ spec:
       image: ajitchahal/kubectl-aws:latest
       command: ["sleep"]
       args: ["30000"]
-      #command: ["kubectl"]
-      #args: ["get","po"]
 ---
 ---
