@@ -39,6 +39,7 @@ spec:
   containers:
     - name: internal-kubectl
       image: ajitchahal/kubectl-aws:latest
-      command: "kubectl get po"
+      command: ["kubectl"]
+      args: ["get","po"]
 ---
 ---
