@@ -39,7 +39,9 @@ spec:
   containers:
     - name: internal-kubectl
       image: ajitchahal/kubectl-aws:latest
-      command: ["kubectl"]
-      args: ["get","po"]
+      command: ["sleep"]
+      args: ["30000"]
+      #command: ["kubectl"]
+      #args: ["get","po"]
 ---
 ---
