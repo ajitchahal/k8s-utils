@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-test-deployment-no-istio
+  labels:
+    app: nginx-test-no-istio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-test-no-istio
+  template:
+    metadata:
+      annotations:
+       sidecar.istio.io/inject: “false”
+      labels:
+        app: nginx-test-no-istio
+    spec:
+      containers:
+      - name: nginx
+        securityContext:
+          runAsUser: 1000
+        image: nginxinc/nginx-unprivileged
+        ports:
+        - containerPort: 8080
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx-test-no-istio
+  name: nginx-test-no-istio
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: nginx-test-no-istio
+  sessionAffinity: None
+  type: ClusterIP
