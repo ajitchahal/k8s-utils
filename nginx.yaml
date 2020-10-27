@@ -19,6 +19,7 @@ spec:
         securityContext:
           runAsUser: 1000
         image: ajitchahal/nginx-3:latest #nginxinc/nginx-unprivileged
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: http
