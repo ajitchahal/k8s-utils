@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-docker build ./Dockerfile.base -t ajitchahal/kubectl-aws
+docker build -f Dockerfile.base -t ajitchahal/kubectl-aws .
 
-docker build ./Dockerfile.pod -t ajitchahal/kubectl-aws
+docker build -f Dockerfile.pod -t ajitchahal/kubectl-aws .
 
 docker push  ajitchahal/kubectl-aws
 
