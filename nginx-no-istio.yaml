@@ -20,7 +20,7 @@ spec:
       - name: nginx
         securityContext:
           runAsUser: 1000
-        image: nginxinc/nginx-unprivileged
+        image: ajitchahal/nginx-unprivileged
         ports:
         - containerPort: 8080
           name: http
