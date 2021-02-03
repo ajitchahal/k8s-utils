@@ -20,8 +20,8 @@ spec:
           #runAsUser: 1000
         image: bitnami/postgresql
         env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
+        #- name: ALLOW_EMPTY_PASSWORD
+        #  value: "yes"
         - name: POSTGRES_PASSWORD
           value: FoolishPassword
         - name: POSTGRES_USER
