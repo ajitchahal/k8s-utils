@@ -22,6 +22,8 @@ spec:
         env:
         - name: ZOO_MY_ID
           value: "1"
+        - name: ZOO_ADMINSERVER_ENABLED
+          valule: "true"
         ports:
         - containerPort: 2181
           name: tcp
