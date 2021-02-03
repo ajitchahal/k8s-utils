@@ -22,6 +22,12 @@ spec:
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
+        - name: POSTGRES_PASSWORD
+          value: FoolishPassword
+        - name: POSTGRES_USER
+          value: druid
+        - name: POSTGRES_DB
+          value: druid
         ports:
         - containerPort: 5432
           name: tcp
