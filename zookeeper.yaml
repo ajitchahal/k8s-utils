@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-deployment
+  labels:
+    app: zookeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        #securityContext:
+          #runAsUser: 1000
+        image: bitnami/zookeeper
+        env:
+        - name: ZOO_MY_ID
+          value: 1
+        ports:
+        - containerPort: 2181
+          name: tcp
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper
+  name: zookeeper
+spec:
+  ports:
+  - name: tcp
+    port: 2181
+    protocol: TCP
+    targetPort: tcp
+  selector:
+    app: zookeeper
+  sessionAffinity: None
+  type: ClusterIP
