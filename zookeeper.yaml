@@ -24,12 +24,23 @@ spec:
           value: "1"
         - name: ZOO_ADMINSERVER_ENABLED
           value: "true"
+        - name: ALLOW_ANONYMOUS_LOGIN
+          value: "yes"
+        - name: ZOO_ENABLE_PROMETHEUS_METRICS
+          value: "true"
+        - name: ZOO_ENABLE_PROMETHEUS_METRICS
+          value: "true"
+        - name: ZOO_PROMETHEUS_METRICS_PORT_NUMBER
+          value: "9090"
         ports:
         - containerPort: 2181
           name: tcp
           protocol: TCP
         - containerPort: 8080
           name: http
+          protocol: TCP
+        - containerPort: 9090
+          name: prom
           protocol: TCP
 ---
 apiVersion: v1
@@ -48,6 +59,9 @@ spec:
     port: 8080
     protocol: TCP
     targetPort: http
+  - name: prom
+    port: 9090
+    targetPort: prom
   selector:
     app: zookeeper-tmp
   sessionAffinity: None
