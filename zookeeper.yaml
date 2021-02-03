@@ -21,7 +21,7 @@ spec:
         image: bitnami/zookeeper
         env:
         - name: ZOO_MY_ID
-          value: 1
+          value: "1"
         ports:
         - containerPort: 2181
           name: tcp
