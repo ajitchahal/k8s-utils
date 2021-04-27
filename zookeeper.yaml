@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zookeeper-tmp-deployment
+  name: zookeeper-deployment
   labels:
-    app: zookeeper-tmp
+    app: zookeeper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zookeeper-tmp
+      app: zookeeper
   template:
     metadata:
       labels:
-        app: zookeeper-tmp
+        app: zookeeper
     spec:
       containers:
       - name: zookeeper
@@ -48,8 +48,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: zookeeper-tmp
-  name: zookeeper-tmp
+    app: zookeeper
+  name: zookeeper
 spec:
   ports:
   - name: tcp
@@ -64,6 +64,6 @@ spec:
     port: 9090
     targetPort: prom
   selector:
-    app: zookeeper-tmp
+    app: zookeeper
   sessionAffinity: None
   type: ClusterIP
