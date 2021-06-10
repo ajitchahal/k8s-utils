@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        #securityContext:
+          #runAsUser: 1000
+        image: bitnami/mysql
+        env:
+        #- name: ALLOW_EMPTY_PASSWORD
+        #  value: "yes"
+        - name: MYSQL_ROOT_PASSWORD
+          value: FoolishPassword        
+        - name: MYSQL_PASSWORD
+          value: FoolishPassword
+        - MYSQL_USER: mysql_USER
+          value: druid
+        - name: MYSQL_DATABASE
+          value: druid
+        ports:
+        - containerPort: 3306
+          name: tcp
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql
+  name: mysql
+spec:
+  ports:
+  - name: tcp
+    port: 3306
+    protocol: TCP
+    targetPort: tcp
+  selector:
+    app: mysql
+  sessionAffinity: None
+  type: ClusterIP
