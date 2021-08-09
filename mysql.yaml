@@ -26,7 +26,7 @@ spec:
           value: FoolishPassword        
         - name: MYSQL_PASSWORD
           value: FoolishPassword
-        - MYSQL_USER: mysql_USER
+        - name: mysql_USER
           value: druid
         - name: MYSQL_DATABASE
           value: druid
