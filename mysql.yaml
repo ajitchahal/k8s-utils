@@ -51,3 +51,4 @@ spec:
     app: mysql
   sessionAffinity: None
   type: ClusterIP
+  ---
