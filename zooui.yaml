@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zooui-test-deployment-no-istio
+  labels:
+    app: zooui-test-no-istio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zooui-test-no-istio
+  template:
+    metadata:
+      annotations:
+       sidecar.istio.io/inject: “false”
+      labels:
+        app: zooui-test-no-istio
+    spec:
+      containers:
+      - name: zooui
+        securityContext:
+          runAsUser: 1000
+        image: elkozmon/zoonavigator:latest
+        ports:
+        - containerPort: 9000
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zooui-test-no-istio
+  name: zooui-test-no-istio
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: zooui-test-no-istio
+  sessionAffinity: None
+  type: ClusterIP
