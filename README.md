@@ -9,4 +9,5 @@ nc -zv nginx-test 80
 nc -zv nginx-test 80
 
 #### write output of a url response to standard output
+wget -O - nginx-test
 wget -O - nginx-test > /dev/null
