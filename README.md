@@ -19,9 +19,13 @@ kubectl label namespace default istio-injection=enabled/disabled
 
 # Istio installation 
 https://istio.io/latest/docs/setup/platform-setup/kind/
+
 https://kind.sigs.k8s.io/docs/user/quick-start/
+
 https://istio.io/latest/docs/setup/install/helm/
+
 https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/#lock-down-mutual-tls-for-the-entire-mesh
+
 
 ## https://discuss.istio.io/t/verifying-mtls-between-services/5539/3 
 ```bash
