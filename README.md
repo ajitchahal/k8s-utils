@@ -17,6 +17,8 @@ wget -O - nginx-test > /dev/null
 ###
 kubectl label namespace default istio-injection=enabled/disabled
 
+---
+
 # Istio installation 
 https://istio.io/latest/docs/setup/platform-setup/kind/
 
@@ -26,8 +28,11 @@ https://istio.io/latest/docs/setup/install/helm/
 
 https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/#lock-down-mutual-tls-for-the-entire-mesh
 
+---
 
-## https://discuss.istio.io/t/verifying-mtls-between-services/5539/3 
+## Verifying-mtls-between-services 
+
+https://discuss.istio.io/t/verifying-mtls-between-services/5539/3 
 ```bash
 istioctl x describe pod nginx-test-deployment-74b86c8867-96txl              1 ↵  14:34:50 
 Pod: nginx-test-deployment-74b86c8867-96txl
