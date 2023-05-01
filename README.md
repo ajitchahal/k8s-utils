@@ -21,6 +21,7 @@ kubectl label namespace default istio-injection=enabled/disabled
 
 # Istio installation 
 https://istio.io/latest/docs/setup/platform-setup/kind/
+K8s dashboard: token=$(kubectl -n kubernetes-dashboard create token admin-user)
 
 https://kind.sigs.k8s.io/docs/user/quick-start/
 
@@ -51,3 +52,7 @@ Skipping Gateway information (no ingress gateway pods)
 ```
  mTLS mode: PERMISSIVE, mtls is disabled
  mTLS mode: STRICT
+ 
+ ---
+ ## Istio Dashboard
+ 
