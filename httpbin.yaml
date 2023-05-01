@@ -13,7 +13,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 8000
+    port: 80
     targetPort: 80
   selector:
     app: httpbin
@@ -41,7 +41,7 @@ spec:
       - image: docker.io/kong/httpbin
         imagePullPolicy: IfNotPresent
         name: httpbin
-        securityContext:
-          runAsUser: 1000
+        #securityContext:
+         # runAsUser: 1000
         ports:
         - containerPort: 80
