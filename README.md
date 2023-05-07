@@ -18,8 +18,7 @@ abcd + Enter
 wget -O - nginx-test
 wget -O - nginx-test > /dev/null
 
-###
-kubectl label namespace default istio-injection=enabled/disabled
+
 
 ---
 
@@ -31,11 +30,16 @@ https://kind.sigs.k8s.io/docs/user/quick-start/
 
 https://istio.io/latest/docs/setup/install/helm/
 
-https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/#lock-down-mutual-tls-for-the-entire-mesh
+
 
 ---
 
-## Verifying-mtls-between-services 
+## Istio MTLS
+https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/#lock-down-mutual-tls-for-the-entire-mesh
+###
+kubectl label namespace default istio-injection=enabled/disabled
+##
+### Verifying-mtls-between-services 
 
 https://discuss.istio.io/t/verifying-mtls-between-services/5539/3 
 ```bash
