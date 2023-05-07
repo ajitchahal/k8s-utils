@@ -1,6 +1,6 @@
 # k8s install kind
 ```bash
-kind create cluster --config kind/kind-config.yaml
+kind create cluster --config ~/rnd/my-github/k8s-utils/kind/kind.config.yaml
 ```
 # k8s-utils
 k8s utilities 
