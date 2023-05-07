@@ -9,7 +9,9 @@ https://hub.docker.com/_/flink
 Operator in 1 ns and flinkdeployment in other NS
 -  in all other name spaces we need roles and flink SA
 
-https://nightlies.apache.org/flink/flink-kubernetes-operator-docs-main/docs/operations/rbac/https://raw.githubusercontent.com/apache/flink-kubernetes-operator/release-1.4/examples/basic.yaml
+https://nightlies.apache.org/flink/flink-kubernetes-operator-docs-main/docs/operations/rbac/
+
+https://raw.githubusercontent.com/apache/flink-kubernetes-operator/release-1.4/examples/basic.yaml
 
 ---
 # -------- flink api----
