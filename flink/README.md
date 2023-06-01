@@ -1,3 +1,9 @@
+# Flink Architechture
+Terms: slots etc.
+
+https://nightlies.apache.org/flink/flink-docs-master/docs/concepts/flink-architecture/
+
+---
 # Flink operator 
 
 ## Installation:
@@ -14,6 +20,10 @@ https://nightlies.apache.org/flink/flink-kubernetes-operator-docs-main/docs/oper
 https://raw.githubusercontent.com/apache/flink-kubernetes-operator/release-1.4/examples/basic.yaml
 
 ---
+## flink taskmanager replicas
+https://nightlies.apache.org/flink/flink-kubernetes-operator-docs-main/docs/custom-resource/reference/#taskmanagerspec
+
+
 # -------- flink api----
 table api 
 https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/table_api/
