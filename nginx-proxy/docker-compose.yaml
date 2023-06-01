@@ -1,0 +1,35 @@
+version: "2.2"
+
+#volumes:
+
+
+services:
+  nginxfront:
+    container_name: nginxfront
+    image: ajitchahal/nginx-front:1.21
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./conf:/usr/local/nginx/conf
+      - ./logs:/usr/local/nginx/logs
+    environment:
+      - ABC=front
+    networks:
+      - nginx
+  nginxback:
+    container_name: nginxback
+    image: ajitchahal/nginx-front:1.21
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./conf-backend:/usr/local/nginx/conf
+      - ./logs-backend:/usr/local/nginx/logs
+      - ./www:/www
+    environment:
+      - ABC=back
+    networks:
+      - nginx
+
+networks:
+  nginx:
+    driver: bridge
